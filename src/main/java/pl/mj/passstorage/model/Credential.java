@@ -1,6 +1,6 @@
 package pl.mj.passstorage.model;
 
-public class User {
+public class Credential {
     private long id;
     private String name;
     private String password;
