@@ -1,22 +1,34 @@
 package pl.mj.passstorage.model;
 
 import java.time.LocalDate;
+import java.util.UUID;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
+
+@Entity
+@Table(name = "passwords")
 public class Password {
-    private String id;
+    @Id
+    @Type(type = "uuid-char")
+    @Column(columnDefinition = "UNIQUEIDENTIFIER")
+    private UUID id;
     private String name;
     private String url;
     private String user;
-    private String password;
+    private String pass;
     private String description;
     private boolean active;
     private LocalDate updateDate;
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -44,12 +56,12 @@ public class Password {
         this.user = user;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPass() {
+        return pass;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
     public String getDescription() {
