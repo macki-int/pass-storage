@@ -11,10 +11,20 @@ public class PassStorage extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(PassStorage.class.getResource("pass-storage-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 520, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 640, 400);
         stage.setTitle("Password Storage");
         stage.setScene(scene);
         stage.show();
+    }
+
+    @Override
+    public void stop() throws Exception {
+        System.out.println("Stopped app");
+    }
+
+    @Override
+    public void init() throws Exception {
+        super.init();
     }
 
     public static void main(String[] args) {
