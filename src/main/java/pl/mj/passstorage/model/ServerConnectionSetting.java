@@ -1,22 +1,22 @@
 package pl.mj.passstorage.model;
 
-public class ServerConnectionParameter {
-    private String path;
-    private int port;
+public class ServerConnectionSetting {
+    private String url;
+    private String port;
 
-    public String getPath() {
-        return path;
+    public String getUrl() {
+        return url;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
-    public int getPort() {
+    public String getPort() {
         return port;
     }
 
-    public void setPort(int port) {
+    public void setPort(String port) {
         this.port = port;
     }
 }
