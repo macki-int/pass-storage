@@ -9,7 +9,7 @@ import pl.mj.passstorage.model.Password;
 
 public class HibernateUtil {
     private static SessionFactory sessionFactory;
-    private ServiceRegistry serviceRegistry;
+//    private ServiceRegistry serviceRegistry;
 
     static {
         Configuration config = getConfiguration();
@@ -20,6 +20,7 @@ public class HibernateUtil {
     public static Session openSession(){
         return sessionFactory.openSession();
     }
+
     private static Configuration getConfiguration(){
         Configuration config = new Configuration();
         config.addAnnotatedClass(Password.class);
