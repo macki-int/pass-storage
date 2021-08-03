@@ -14,7 +14,7 @@ public class ServerConfigJsonReadFromFile {
         JSONObject jsonObject = new JSONObject();
         ServerConnectionSetting serverConnectionSetting = new ServerConnectionSetting();
 
-        String filePath = "/papss_storage.json";
+        String filePath = "/pass_storage.json";
 
         if (!checkExistServerConfigJsonReadFromFile(filePath)) {
             serverConnectionSetting.setPort("");
