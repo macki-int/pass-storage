@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import pl.mj.passstorage.model.ServerConnectionSetting;
 import pl.mj.passstorage.service.ServerConfigJsonReadFromFile;
@@ -17,6 +18,8 @@ public class PassStorageController  implements  Initializable{
     @FXML
     private Button buttonLogin;
     @FXML
+    private Button buttonSave;
+    @FXML
     private TextField textUrl;
     @FXML
     private TextField textPort;
@@ -26,6 +29,20 @@ public class PassStorageController  implements  Initializable{
     protected void onLoginButtonAction(ActionEvent event) {
         Stage stage = (Stage) buttonLogin.getScene().getWindow();
         stage.close();
+    }
+
+    @FXML
+    protected void onURLTextFieldTyped(KeyEvent event) {
+        setVisibleButtonSave();
+    }
+
+    @FXML
+    protected void onPortTextFieldTyped(KeyEvent event) {
+        setVisibleButtonSave();
+    }
+
+    private void setVisibleButtonSave(){
+        buttonSave.setVisible(true);
     }
 
     @Override
