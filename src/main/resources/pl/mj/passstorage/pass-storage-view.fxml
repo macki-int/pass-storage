@@ -38,9 +38,9 @@
             <GridPane.margin>
                <Insets left="10.0" />
             </GridPane.margin></Button>
-         <TextField fx:id="textUrl" promptText="URL" GridPane.rowIndex="2" />
-         <TextField fx:id="textPort" prefHeight="25.0" prefWidth="265.0" promptText="Port" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-         <Button fx:id="buttonSave" mnemonicParsing="false" text="Zapisz" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+         <TextField fx:id="textUrl" onKeyTyped="#onURLTextFieldTyped" promptText="URL" GridPane.rowIndex="2" />
+         <TextField fx:id="textPort" onKeyTyped="#onPortTextFieldTyped" prefHeight="25.0" prefWidth="265.0" promptText="Port" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+         <Button fx:id="buttonSave" mnemonicParsing="false" text="Zapisz" textFill="#4b98e1" visible="false" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="2">
             <GridPane.margin>
                <Insets left="10.0" />
             </GridPane.margin>
