@@ -7,13 +7,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import org.hibernate.Session;
 import pl.mj.passstorage.model.ServerConnectionSetting;
+import pl.mj.passstorage.service.HibernateUtil;
 import pl.mj.passstorage.service.ServerConfigJsonReadFromFile;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class PassStorageController  implements  Initializable{
+public class PassStorageController implements Initializable {
 
     @FXML
     private Button buttonLogin;
@@ -27,7 +29,15 @@ public class PassStorageController  implements  Initializable{
 
     @FXML
     protected void onLoginButtonAction(ActionEvent event) {
+
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            System.out.println("start session");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         Stage stage = (Stage) buttonLogin.getScene().getWindow();
+
         stage.close();
     }
 
@@ -41,12 +51,12 @@ public class PassStorageController  implements  Initializable{
         setVisibleButtonSave();
     }
 
-    private void setVisibleButtonSave(){
+    private void setVisibleButtonSave() {
         buttonSave.setVisible(true);
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         serverConnectionSetting = new ServerConfigJsonReadFromFile().getServerConnectionSetting();
 
         textUrl.setText(serverConnectionSetting.getUrl());
