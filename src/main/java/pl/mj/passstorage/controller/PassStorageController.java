@@ -11,6 +11,7 @@ import org.hibernate.Session;
 import pl.mj.passstorage.model.ServerConnectionSetting;
 import pl.mj.passstorage.service.HibernateUtil;
 import pl.mj.passstorage.service.ServerConfigJsonReadFromFile;
+import pl.mj.passstorage.service.ServerConfigJsonSaveToFile;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -39,6 +40,18 @@ public class PassStorageController implements Initializable {
         Stage stage = (Stage) buttonLogin.getScene().getWindow();
 
         stage.close();
+    }
+    @FXML
+    protected void onSaveButtonAction(ActionEvent event) {
+        System.out.println("save");
+        ServerConnectionSetting serverConnectionSetting = new ServerConnectionSetting();
+        serverConnectionSetting.setUrl(textUrl.getText());
+        serverConnectionSetting.setPort(textPort.getText());
+
+        ServerConfigJsonSaveToFile serverConfigJsonSaveToFile = new ServerConfigJsonSaveToFile();
+        serverConfigJsonSaveToFile.saveConfiguration(serverConnectionSetting);
+
+        buttonSave.setVisible(false);
     }
 
     @FXML
