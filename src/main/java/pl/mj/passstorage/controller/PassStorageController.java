@@ -13,6 +13,7 @@ import pl.mj.passstorage.service.HibernateUtil;
 import pl.mj.passstorage.service.ServerConfigJsonReadFromFile;
 import pl.mj.passstorage.service.ServerConfigJsonSaveToFile;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -42,8 +43,7 @@ public class PassStorageController implements Initializable {
         stage.close();
     }
     @FXML
-    protected void onSaveButtonAction(ActionEvent event) {
-        System.out.println("save");
+    protected void onSaveButtonAction(ActionEvent event) throws IOException {
         ServerConnectionSetting serverConnectionSetting = new ServerConnectionSetting();
         serverConnectionSetting.setUrl(textUrl.getText());
         serverConnectionSetting.setPort(textPort.getText());
