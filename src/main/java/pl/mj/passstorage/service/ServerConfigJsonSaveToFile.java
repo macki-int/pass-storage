@@ -3,21 +3,23 @@ package pl.mj.passstorage.service;
 import org.json.JSONObject;
 import pl.mj.passstorage.model.ServerConnectionSetting;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class ServerConfigJsonSaveToFile {
 
-    public void saveConfiguration(ServerConnectionSetting serverConnectionSetting) {
+    public void saveConfiguration(ServerConnectionSetting serverConnectionSetting) throws IOException {
         JSONObject jsonObject = new JSONObject();
+        ClassLoader classLoader = getClass().getClassLoader();
 
-//        String filePath = "E:\\Repositories\\pass-storage\\src\\main\\resources\\pass_storage.json";
-        String filePath = "/pass_storage.json";
+        String filePath = "pass_storage.json";
 
         jsonObject.put("path", serverConnectionSetting.getUrl());
         jsonObject.put("port", serverConnectionSetting.getPort());
 
-        try (FileWriter fileWriter = new FileWriter(filePath)) {
+        String path = classLoader.getResource(filePath).getPath();
+        try (FileWriter fileWriter = new FileWriter(path)) {
 
             fileWriter.write(jsonObject.toString());
             fileWriter.flush();
