@@ -65,8 +65,14 @@
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>
-            <version>9.2.1.jre15</version>
+            <version>9.4.0.jre16</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.postgresql</groupId>-->
+<!--            <artifactId>postgresql</artifactId>-->
+<!--            <version>42.2.23</version>-->
+<!--        </dependency>-->
+
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
