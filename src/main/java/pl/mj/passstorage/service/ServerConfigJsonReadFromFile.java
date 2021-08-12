@@ -4,22 +4,18 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 import pl.mj.passstorage.model.ServerConnectionSetting;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
-import java.nio.file.Path;
-
+//https://howtodoinjava.com/java/library/json-simple-read-write-json-examples/
 public class ServerConfigJsonReadFromFile {
     public ServerConnectionSetting getServerConnectionSetting() {
         JSONObject jsonObject = new JSONObject();
         ServerConnectionSetting serverConnectionSetting = new ServerConnectionSetting();
 
-        String filePath = "pass_storage.json";
         ClassLoader classLoader = getClass().getClassLoader();
 
         JSONTokener tokener;
-        try (InputStream inputStream = classLoader.getResourceAsStream(filePath)) {
+        try (InputStream inputStream = classLoader.getResourceAsStream(Constants.CONFIG_FILE)) {
             if (inputStream == null) {
                 serverConnectionSetting.setPort("");
                 serverConnectionSetting.setUrl("");
@@ -34,10 +30,5 @@ public class ServerConfigJsonReadFromFile {
         }
 
         return serverConnectionSetting;
-    }
-
-    private Boolean checkExistServerConfigJsonReadFromFile(String filePath) {
-        URL url = ServerConfigJsonReadFromFile.class.getResource(filePath);
-        return new File(url.getPath()).isFile();
     }
 }
