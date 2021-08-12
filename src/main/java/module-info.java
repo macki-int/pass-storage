@@ -6,7 +6,6 @@ module pl.mj.passstorage {
 
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
-    requires org.kordamp.ikonli.javafx;
     requires java.persistence;
     requires org.hibernate.orm.core;
     requires org.json;
