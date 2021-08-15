@@ -54,7 +54,7 @@
          </Label>
       </children>
    </GridPane>
-   <TableView prefHeight="276.0" prefWidth="518.0">
+   <TableView prefHeight="276.0" prefWidth="600.0">
      <columns>
        <TableColumn prefWidth="100.0" text="Nazwa" />
        <TableColumn prefWidth="100.0" text="Użytkownik" />
