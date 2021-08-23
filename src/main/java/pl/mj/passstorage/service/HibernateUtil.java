@@ -15,12 +15,11 @@ public class HibernateUtil {
 
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
-            try {
-                System.out.println("start config");
-                Configuration config = new Configuration();
-                System.out.println("created config");
 
+            try {
+                Configuration config = new Configuration();
                 Properties settings = new Properties();
+
                 settings.put(Environment.DRIVER, "com.microsoft.sqlserver.jdbc.SQLServerDriver");
 //                settings.put(Environment.DRIVER, "org.postgresql.Driver");
                 settings.put(Environment.URL, "jdbc:sqlserver://localhost:1433;databaseName=ps;integratedSecurity=true");
@@ -35,13 +34,15 @@ public class HibernateUtil {
                 config.setProperties(settings);
                 config.addAnnotatedClass(Password.class);
 
-                ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(config.getProperties()).build();
+                ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
+                        .applySettings(config.getProperties())
+                        .build();
 
                 sessionFactory = config.buildSessionFactory(serviceRegistry);
+
             } catch (Exception e) {
                 System.out.println("Wrapper exception: " + e);
                 System.out.println("Underlying exception: " + e.getCause());
-//                e.printStackTrace();
             }
         }
         return sessionFactory;
