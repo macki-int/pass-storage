@@ -31,15 +31,7 @@ public class PassStorageController implements Initializable {
 
     @FXML
     protected void onLoginButtonAction(ActionEvent event) {
-
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            System.out.println("start session");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
         Stage stage = (Stage) buttonLogin.getScene().getWindow();
-
         stage.close();
     }
     @FXML
