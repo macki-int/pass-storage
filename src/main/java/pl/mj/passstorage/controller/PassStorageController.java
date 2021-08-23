@@ -7,12 +7,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import org.hibernate.Session;
 import pl.mj.passstorage.model.Password;
 import pl.mj.passstorage.model.ServerConnectionSetting;
 import pl.mj.passstorage.repository.PasswordRepository;
 import pl.mj.passstorage.repository.PasswordRepositoryImpl;
-import pl.mj.passstorage.service.HibernateUtil;
 import pl.mj.passstorage.service.ServerConfigJsonReadFromFile;
 import pl.mj.passstorage.service.ServerConfigJsonSaveToFile;
 
@@ -33,21 +31,21 @@ public class PassStorageController implements Initializable {
     private TextField textPort;
 
     private ServerConnectionSetting serverConnectionSetting;
-    private PasswordRepositoryImpl passwordRepositoryImpl;
+    private PasswordRepository passwordRepository;
 
     public PassStorageController() {
-        this.passwordRepositoryImpl = new PasswordRepository;
+        this.passwordRepository = new PasswordRepositoryImpl();
     }
 
     @FXML
     protected void onLoginButtonAction(ActionEvent event) {
-        List<Password> passwordList = passwordRepositoryImpl.getAll();
+        List<Password> passwordList = passwordRepository.getAll();
 
 
         Stage stage = (Stage) buttonLogin.getScene().getWindow();
         stage.close();
     }
-    
+
     @FXML
     protected void onSaveButtonAction(ActionEvent event) throws IOException {
         ServerConnectionSetting serverConnectionSetting = new ServerConnectionSetting();
