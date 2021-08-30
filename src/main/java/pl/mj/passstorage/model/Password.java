@@ -19,7 +19,7 @@ public class Password {
     private String name;
     private String url;
     private String user;
-    private String pass;
+    private String passHash;
     private String description;
     private boolean active;
     private LocalDate updateDate;
@@ -56,12 +56,12 @@ public class Password {
         this.user = user;
     }
 
-    public String getPass() {
-        return pass;
+    public String getPassHash() {
+        return passHash;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setPassHash(String passHash) {
+        this.passHash = passHash;
     }
 
     public String getDescription() {
