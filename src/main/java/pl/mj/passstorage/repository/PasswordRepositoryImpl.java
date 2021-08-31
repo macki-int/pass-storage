@@ -3,7 +3,7 @@ package pl.mj.passstorage.repository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import pl.mj.passstorage.model.Password;
+import pl.mj.passstorage.model.LoginData;
 import pl.mj.passstorage.service.HibernateUtil;
 
 import java.util.List;
@@ -18,7 +18,7 @@ public class PasswordRepositoryImpl implements PasswordRepository{
     }
 
     @Override
-    public List<Password> getAll() {
+    public List<LoginData> getAll() {
         session = sessionFactory.openSession();
         try {
             String stringHQL = "From Password";
@@ -29,17 +29,17 @@ public class PasswordRepositoryImpl implements PasswordRepository{
     }
 
     @Override
-    public void addPassword(Password password) {
+    public void addPassword(LoginData loginData) {
 
     }
 
     @Override
-    public void updatePassword(Password password) {
+    public void updatePassword(LoginData loginData) {
 
     }
 
     @Override
-    public void deletePassword(Password password) {
+    public void deletePassword(LoginData loginData) {
 
     }
 }
