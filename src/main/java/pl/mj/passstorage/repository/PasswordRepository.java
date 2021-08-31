@@ -1,12 +1,12 @@
 package pl.mj.passstorage.repository;
 
-import pl.mj.passstorage.model.Password;
+import pl.mj.passstorage.model.LoginData;
 
 import java.util.List;
 
 public interface PasswordRepository {
-    List<Password> getAll();
-    void addPassword (Password password);
-    void updatePassword (Password password);
-    void deletePassword (Password password);
+    List<LoginData> getAll();
+    void addPassword (LoginData loginData);
+    void updatePassword (LoginData loginData);
+    void deletePassword (LoginData loginData);
 }
