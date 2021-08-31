@@ -7,7 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import pl.mj.passstorage.model.Password;
+import pl.mj.passstorage.model.LoginData;
 import pl.mj.passstorage.model.ServerConnectionSetting;
 import pl.mj.passstorage.repository.PasswordRepository;
 import pl.mj.passstorage.repository.PasswordRepositoryImpl;
@@ -34,12 +34,13 @@ public class PassStorageController implements Initializable {
     private PasswordRepository passwordRepository;
 
     public PassStorageController() {
-        this.passwordRepository = new PasswordRepositoryImpl();
+//        this.passwordRepository = new PasswordRepositoryImpl();
     }
 
     @FXML
     protected void onLoginButtonAction(ActionEvent event) {
-        List<Password> passwordList = passwordRepository.getAll();
+        passwordRepository = new PasswordRepositoryImpl();
+        List<LoginData> loginDataList = passwordRepository.getAll();
 
 
         Stage stage = (Stage) buttonLogin.getScene().getWindow();
